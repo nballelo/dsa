@@ -11,13 +11,19 @@ import java.util.List;
  */
 public class TestUser {
     EtakemonManager cache;
-    List<Usuario> lista=new ArrayList<Usuario>();
-    HashMap<String,Usuario>gurra=new HashMap<String, Usuario>();
-    Usuario user=new Usuario();
-    Usuario user1=new Usuario();
-    List<Etackemons>mios=new ArrayList<Etackemons>();
+    List<Usuario>lista ;
+    HashMap<String,Usuario>gurra;
+    Usuario user;
+    Usuario user1;
+    List<Etackemons>mios;
     @Before
-    public void añadirUsers(){
+    public void setUP(){
+        cache=null;
+        lista=new ArrayList<Usuario>();
+        gurra=new HashMap<String, Usuario>();
+        user=new Usuario();
+        user1=new Usuario();
+        mios=new ArrayList<Etackemons>();
         user.setName("Masmi");
         Etackemons etackemon=new Etackemons("Lobo",2);
         mios.add(etackemon);
@@ -38,7 +44,7 @@ public class TestUser {
         list=cache.getInstance().listar();
     }
     @org.junit.Test
-    public void modificar(){
+    public void tearDown(){
         Etackemons e=new Etackemons("MIOS",3);
         mios=new ArrayList<Etackemons>();
         mios.add(e);
